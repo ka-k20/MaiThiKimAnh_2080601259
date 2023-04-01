@@ -71,13 +71,13 @@ a {
     margin-bottom: 30px;
 }
 
-.course > li .date{
-    text-align: center;
-    background-color: aqua;
-    color: white;
-    width : 60px;
-    border-radius: 8px;
-}
+    .course > li .date {
+        text-align: center;
+        background-color: aqua;
+        color: white;
+        width: 60px;
+        border-radius: 8px;
+    }
 .course > li .details{
     position: absolute;
     top: 0;

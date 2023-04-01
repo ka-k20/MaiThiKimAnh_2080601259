@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using MaiThiKimAnh_2080601259.Models;
+using MaiThiKimAnh_2080601259.ViewModels;
 
 namespace MaiThiKimAnh_2080601259.Controllers
 {
@@ -18,7 +19,13 @@ namespace MaiThiKimAnh_2080601259.Controllers
         public ActionResult Index()
         {
             var upcomingCourses = _dbContext.Courses.Include(c => c.Lecturer).Include(c => c.Category).Where(c => c.DateTime > DateTime.Now);
-            return View(upcomingCourses);
+
+            var viewModel = new CourseViewModel
+            {
+                UpcommingCourse = upcomingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()
